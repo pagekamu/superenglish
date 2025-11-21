@@ -20,14 +20,15 @@
 body {
     background-color: var(--bg-body);
     color: var(--text-dark);
-    height: 100vh;
-    overflow: hidden; /* Prevent body scroll, use internal scroll */
+    /* HAPUS height: 100vh dan overflow: hidden biar bisa discroll normal */
+    min-height: 100vh; 
 }
 
 .container {
     display: grid;
     grid-template-columns: 250px 1fr 300px;
-    height: 100vh;
+    min-height: 100vh; /* Ganti height jadi min-height */
+    position: relative;
 }
 
 /* SIDEBAR */
@@ -37,6 +38,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    height: 100vh; 
+    overflow-y: auto; /* Biar sidebar-nya sendiri bisa discroll kalau menunya banyak */
+    border-right: 1px solid #f0f0f0;
 }
 
 .logo {
@@ -131,7 +137,8 @@ body {
 /* MAIN CONTENT */
 .main-content {
     padding: 30px;
-    overflow-y: auto;
+    height: auto; 
+    padding-bottom: 50px; /* Kasih napas di bawah */
 }
 
 header {
@@ -268,6 +275,9 @@ h2 { font-size: 18px; margin-bottom: 20px; }
     display: flex;
     flex-direction: column;
     gap: 25px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     overflow-y: auto;
 }
 
@@ -356,4 +366,18 @@ h2 { font-size: 18px; margin-bottom: 20px; }
     font-size: 10px;
     padding: 4px 8px;
     border-radius: 5px;
+}
+
+.main-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.main-footer p {
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
