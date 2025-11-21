@@ -1,186 +1,359 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperEnglish Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+:root {
+    /* Color Palette - Dark Blue Turquoise Accent */
+    --primary: #008B8B;       /* Dark Cyan/Turquoise */
+    --primary-dark: #006060;
+    --secondary: #E0F2F1;     /* Light Turquoise bg */
+    --bg-body: #F4F7FE;
+    --text-dark: #2B3674;
+    --text-gray: #A3AED0;
+    --white: #FFFFFF;
+    --orange-accent: #FF7551; /* Keeping the flag accent slightly orange for contrast, or change to match */
+}
 
-    <div class="container">
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fa-solid fa-shapes"></i>
-                <h2>SuperEnglish</h2>
-            </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-            <div class="menu-label">MENU</div>
-            <ul class="menu-items">
-                <li class="active"><a href="#"><i class="fa-solid fa-grid-2"></i> Overview</a></li>
-                <li><a href="#"><i class="fa-solid fa-book-open"></i> Lessons</a></li>
-                <li><a href="#"><i class="fa-solid fa-trophy"></i> Leaderboard</a></li>
-                <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Skill Graph</a></li>
-                <li><a href="#"><i class="fa-solid fa-laptop-file"></i> Courses</a></li>
-                <li><a href="#"><i class="fa-solid fa-certificate"></i> Certificates</a></li>
-                <li><a href="#"><i class="fa-solid fa-message"></i> Messages <span class="badge">5</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
-            </ul>
+body {
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll, use internal scroll */
+}
 
-            <div class="premium-card">
-                <div class="flag-icon"><i class="fa-solid fa-flag"></i></div>
-                <h3>Get Premium Now!</h3>
-                <p>Unlock special features like speaking tests.</p>
-                <button class="btn-upgrade">Upgrade Now <i class="fa-solid fa-arrow-up"></i></button>
-            </div>
-        </aside>
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    height: 100vh;
+}
 
-        <main class="main-content">
-            <header>
-                <h1>Dashboard</h1>
-                <div class="search-bar">
-                    <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="Search here...">
-                    <div class="header-icons">
-                        <i class="fa-regular fa-bell"></i>
-                        <img src="https://ui-avatars.com/api/?name=Admin&background=008B8B&color=fff" alt="User" class="avatar-small">
-                    </div>
-                </div>
-            </header>
+/* SIDEBAR */
+.sidebar {
+    background: var(--white);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-            <section class="continue-learning">
-                <h2>Continue Learning</h2>
-                <div class="cards-container">
-                    <div class="course-card-h">
-                        <div class="icon-box"><i class="fa-solid fa-pen-nib"></i></div>
-                        <div class="card-info">
-                            <h3>Narrative Text Mastery</h3>
-                            <span class="category">WRITING</span>
-                            <div class="progress-bar"><div class="fill" style="width: 45%"></div></div>
-                            <div class="meta">
-                                <span><i class="fa-solid fa-book"></i> 18/40 Lessons</span>
-                                <span><i class="fa-regular fa-clock"></i> 2 hours left</span>
-                            </div>
-                            <a href="#" class="resume-link">Resume Course <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="course-card-h">
-                        <div class="icon-box"><i class="fa-brands fa-html5"></i></div>
-                        <div class="card-info">
-                            <h3>TKA Preparation</h3>
-                            <span class="category">EXAM</span>
-                            <div class="progress-bar"><div class="fill" style="width: 70%"></div></div>
-                            <div class="meta">
-                                <span><i class="fa-solid fa-book"></i> 28/40 Lessons</span>
-                                <span><i class="fa-regular fa-clock"></i> 1 hours left</span>
-                            </div>
-                            <a href="#" class="resume-link">Resume Course <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    margin-bottom: 40px;
+}
 
-            <section class="recommended">
-                <h2>Recommended Courses For You</h2>
-                <div class="video-grid">
-                    <div class="video-card">
-                        <div class="thumbnail" style="background-color: #1e293b; color: white; display:flex; align-items:center; justify-content:center;">
-                            <span>Advanced Grammar</span>
-                        </div>
-                        <div class="video-info">
-                            <h3>Mastering Tenses & Conditionals</h3>
-                            <p>Ms. Nana</p>
-                            <div class="rating">
-                                <i class="fa-solid fa-star"></i> 4.7 (32)
-                                <span class="price">$12.99</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-card">
-                         <div class="thumbnail" style="background-color: #334155; color: white; display:flex; align-items:center; justify-content:center;">
-                            <span>Speaking Club</span>
-                        </div>
-                        <div class="video-info">
-                            <h3>Conversation for Daily Life</h3>
-                            <p>Mr. Smith</p>
-                            <div class="rating">
-                                <i class="fa-solid fa-star"></i> 4.8 (540)
-                                <span class="price">$49.99</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+.menu-label {
+    color: var(--text-gray);
+    font-size: 12px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
 
-        <aside class="right-panel">
-            <div class="profile-header">
-                <div class="close-details"><i class="fa-solid fa-arrow-right-from-bracket"></i> Close Details</div>
-            </div>
+.menu-items {
+    list-style: none;
+    flex-grow: 1;
+}
 
-            <div class="user-profile">
-                <div class="avatar-large">
-                    <img src="https://ui-avatars.com/api/?name=Nana&background=008B8B&color=fff&size=128" alt="Nana">
-                </div>
-                <h3>Nana</h3>
-                <p>English Teacher & Learner</p>
-                <div class="points"><i class="fa-solid fa-medal"></i> 876 Points</div>
-            </div>
+.menu-items li {
+    margin-bottom: 10px;
+}
 
-            <div class="stats-row">
-                <div class="stat-item">
-                    <span class="fire"><i class="fa-solid fa-fire"></i> 54</span>
-                    <small>Days Streak</small>
-                </div>
-                <div class="stat-item">
-                    <span class="target"><i class="fa-solid fa-bullseye"></i> 06</span>
-                    <small>Goals</small>
-                </div>
-                <div class="stat-item">
-                    <span class="cup"><i class="fa-solid fa-trophy"></i> 02</span>
-                    <small>2nd Place</small>
-                </div>
-            </div>
+.menu-items a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-gray);
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-weight: 500;
+}
 
-            <div class="section-title">
-                Weekly Streak <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <div class="calendar-streak">
-                <div class="day active"><span>M</span>30</div>
-                <div class="day active"><span>T</span>31</div>
-                <div class="day active"><span>W</span>1</div>
-                <div class="day"><span>T</span>2</div>
-                <div class="day"><span>F</span>3</div>
-            </div>
+.menu-items li.active a, .menu-items a:hover {
+    color: var(--primary);
+    background: var(--secondary);
+    border-right: 4px solid var(--primary);
+}
 
-            <div class="course-stats">
-                <div class="stat-box">
-                    <div class="icon sm"><i class="fa-solid fa-book"></i></div>
-                    <h4>3 Courses</h4>
-                    <small>In Progress</small>
-                </div>
-                <div class="stat-box">
-                    <div class="icon sm"><i class="fa-solid fa-check-double"></i></div>
-                    <h4>17 Courses</h4>
-                    <small>Completed</small>
-                </div>
-            </div>
+.badge {
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    margin-left: auto;
+}
 
-            <div class="section-title">
-                Weekly Watch Time <i class="fa-solid fa-clock"></i>
-            </div>
-            <div class="chart-container">
-                <div class="bar" style="height: 40%"></div>
-                <div class="bar" style="height: 60%"></div>
-                <div class="bar active" style="height: 80%"><span class="tooltip">4:24m</span></div>
-                <div class="bar" style="height: 30%"></div>
-                <div class="bar" style="height: 50%"></div>
-            </div>
-        </aside>
-    </div>
+.premium-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    text-align: center;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.flag-icon {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background: white;
+    color: var(--orange-accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.premium-card h3 { font-size: 16px; margin-top: 10px; margin-bottom: 5px; }
+.premium-card p { font-size: 12px; opacity: 0.8; margin-bottom: 15px; }
+
+.btn-upgrade {
+    background: white;
+    color: var(--primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    padding: 30px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    background: var(--white);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Sections */
+h2 { font-size: 18px; margin-bottom: 20px; }
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.course-card-h {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.icon-box {
+    background: var(--secondary);
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.card-info { flex-grow: 1; }
+.card-info h3 { font-size: 16px; margin-bottom: 5px; }
+.category { font-size: 10px; color: var(--text-gray); letter-spacing: 1px; }
+
+.progress-bar {
+    height: 6px;
+    background: #edf2f7;
+    border-radius: 3px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar .fill {
+    height: 100%;
+    background: var(--orange-accent); /* Keep orange for progress or change to primary */
+    border-radius: 3px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+}
+
+.resume-link {
+    font-size: 12px;
+    color: var(--orange-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.video-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.thumbnail {
+    height: 150px;
+    background: #ccc;
+    position: relative;
+}
+
+.video-info { padding: 15px; }
+.video-info h3 { font-size: 15px; }
+.video-info p { font-size: 12px; color: var(--text-gray); margin-bottom: 10px; }
+.rating { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; }
+.rating i { color: #FFB547; }
+
+/* RIGHT PANEL */
+.right-panel {
+    background: var(--white);
+    padding: 30px;
+    border-left: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+.profile-header { text-align: right; font-size: 12px; color: var(--orange-accent); cursor: pointer; }
+
+.user-profile { text-align: center; }
+.avatar-large img { border-radius: 50%; margin-bottom: 10px; border: 4px solid var(--secondary); }
+.points { margin-top: 5px; font-weight: 700; color: var(--text-dark); }
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    background: var(--bg-body);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.stat-item { text-align: center; }
+.stat-item span { display: block; font-weight: 700; font-size: 18px; margin-bottom: 5px; }
+.stat-item small { font-size: 10px; color: var(--text-gray); }
+.stat-item .fire { color: #FF7551; }
+
+.calendar-streak {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.day span { display: block; color: var(--text-gray); font-size: 10px; margin-bottom: 5px; }
+.day.active { background: var(--orange-accent); color: white; }
+.day.active span { color: rgba(255,255,255,0.8); }
+
+.course-stats { display: flex; gap: 15px; }
+.stat-box {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+.stat-box .icon {
+    width: 30px; height: 30px; background: var(--secondary);
+    color: var(--primary); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 10px;
+}
+
+/* Chart Simulation */
+.chart-container {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.bar {
+    width: 100%;
+    background: #E0E5F2;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.bar:hover, .bar.active {
+    background: var(--text-dark);
+}
+
+.bar.active .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-dark);
+    color: white;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
