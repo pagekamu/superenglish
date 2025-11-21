@@ -14,21 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Simple Alert for Upgrade Button
     const upgradeBtn = document.querySelector('.btn-upgrade');
     upgradeBtn.addEventListener('click', () => {
-        alert('Wih! Semangat belajarnya Na! Fitur premium coming soon ya wkwk.');
+        alert('Fitur premium SuperEnglish masih dalam tahap persiapan, Na. Semangat!');
     });
-
-    // 3. Bar Chart Hover Effect (Manual JS logic just for fun)
-    const bars = document.querySelectorAll('.bar');
-    bars.forEach(bar => {
-        bar.addEventListener('mouseenter', function() {
-            this.style.backgroundColor = '#008B8B'; // Change to turquoise on hover
+    
+    // 3. Simple Alert for Simulasi Button
+    const simulasiBtn = document.querySelector('.btn-primary');
+    if (simulasiBtn) {
+        simulasiBtn.addEventListener('click', () => {
+            alert('Lagi loading ke halaman simulasi TOEFL, nih! Good luck!');
         });
-        bar.addEventListener('mouseleave', function() {
-            if(!this.classList.contains('active')) {
-                this.style.backgroundColor = '#E0E5F2';
-            } else {
-                this.style.backgroundColor = '#2B3674';
-            }
-        });
-    });
+    }
 });
